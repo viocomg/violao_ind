@@ -64,4 +64,14 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', checkScroll, { passive: true });
         checkScroll();
     }
+
+    // 4. Rastreamento Meta Pixel (Facebook Ads) - Evento "clicou_wpp"
+    const wppButtons = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"], .btn-cta');
+    wppButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (typeof fbq === 'function') {
+                fbq('trackCustom', 'clicou_wpp');
+            }
+        });
+    });
 });
