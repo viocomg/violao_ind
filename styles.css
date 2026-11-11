@@ -670,36 +670,296 @@ body {
     vertical-align: bottom;
 }
 
-/* Grid de Alunos */
-.student-avatar-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-    padding: 8px 0 2px;
-}
-
-.student-avatar-pill {
+/* Outros Alunos - Carrossel & Depoimentos Extras */
+.other-students-wrap {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    width: 100%;
+}
+
+.other-students-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #f1f5f9;
     text-align: center;
+    margin-bottom: 10px;
 }
 
-.student-avatar-pill img {
-    width: 48px;
-    height: 48px;
+/* Carousel 3D Perspective (Aesthetic from reference site, sized for mobile) */
+.testimonial-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    overflow: hidden;
+    margin: 4px 0 10px;
+    padding: 6px 0 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+}
+
+.carousel-track-container {
+    position: relative;
+    width: 100%;
+    height: 96px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 500px;
+}
+
+.carousel-item {
+    position: absolute;
+    width: 66px;
+    height: 66px;
     border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid rgba(245, 158, 11, 0.4);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    opacity: 0;
+    z-index: 1;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    background: #1a1e2e;
+    cursor: pointer;
 }
 
-.student-avatar-pill span {
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    transform: translateX(0) scale(1.25);
+    z-index: 5;
+    border: 2.5px solid #10b981;
+    box-shadow: 0 0 16px rgba(16, 185, 129, 0.35);
+}
+
+.carousel-item.prev {
+    opacity: 0.45;
+    transform: translateX(-65px) scale(0.85);
+    z-index: 3;
+}
+
+.carousel-item.next {
+    opacity: 0.45;
+    transform: translateX(65px) scale(0.85);
+    z-index: 3;
+}
+
+.carousel-item.prev-hidden {
+    transform: translateX(-110px) scale(0.5);
+    opacity: 0;
+}
+
+.carousel-item.next-hidden {
+    transform: translateX(110px) scale(0.5);
+    opacity: 0;
+}
+
+.carousel-info {
+    text-align: center;
+    margin-top: 14px;
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.carousel-stars {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+    margin-bottom: 6px;
+    color: #f59e0b;
+}
+
+.carousel-stars svg {
+    width: 15px;
+    height: 15px;
+    fill: currentColor;
+}
+
+.carousel-name {
+    font-size: 0.94rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.carousel-city {
     font-size: 0.72rem;
     color: var(--text-muted);
-    line-height: 1.2;
-    word-break: break-word;
-    text-align: center;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.carousel-text {
+    font-size: 0.86rem;
+    font-style: italic;
+    color: #e2e8f0;
+    max-width: 380px;
+    margin: 0 auto;
+    line-height: 1.45;
+    opacity: 0.95;
+    padding: 0 8px;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    align-items: center;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    max-width: 280px;
+    padding: 0 6px;
+}
+
+.carousel-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+}
+
+.carousel-dot.active {
+    background: #10b981;
+    transform: scale(1.35);
+    box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
+}
+
+/* Botão Ver outros depoimentos em vídeo */
+.btn-more-videos {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 18px;
+    margin-top: 14px;
+    background: linear-gradient(135deg, rgba(30, 42, 71, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);
+    color: #e2e8f0;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    border-radius: 12px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    transition: all 0.25s ease;
+}
+
+.btn-more-videos:hover {
+    background: linear-gradient(135deg, rgba(39, 55, 94, 0.95) 0%, rgba(20, 30, 55, 1) 100%);
+    border-color: rgba(16, 185, 129, 0.55);
+    color: #34d399;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.btn-more-videos:active {
+    transform: scale(0.98);
+}
+
+.btn-more-videos svg {
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.btn-more-videos.open svg {
+    transform: rotate(180deg);
+}
+
+/* Grid de Vídeos Extras */
+.other-videos-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 18px;
+    animation: fadeInVideos 0.4s ease-out;
+}
+
+@keyframes fadeInVideos {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.other-video-card {
+    background: rgba(15, 21, 38, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+.other-video-header {
+    padding: 10px 14px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: rgba(18, 23, 38, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.other-video-name {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.25;
+}
+
+.other-video-city {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.other-video-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.other-video-wrap video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #000;
+}
+
+.other-video-poster {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.other-video-wrap:hover .other-video-poster {
+    filter: brightness(1.1);
 }
 
 /* Instructor Bio */

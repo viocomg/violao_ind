@@ -120,13 +120,7 @@
                     <p class="destrave-card-desc">O micromovimento exato para mudar de acorde sem travar e sem parar a música no meio.</p>
                 </div>
 
-                <!-- 5. Pestana -->
-                <div class="destrave-card">
-                    <h4 class="destrave-card-title"><span class="destrave-card-icon">✋</span> Pestana</h4>
-                    <p class="destrave-card-desc">Ajuste do polegar e ponto de apoio para tirar som limpo sem cansar nem doer a mão.</p>
-                </div>
-
-                <!-- 6. Ou outro tema de sua escolha -->
+                <!-- 5. Ou outro tema de sua escolha -->
                 <div class="destrave-card">
                     <h4 class="destrave-card-title"><span class="destrave-card-icon">🎯</span> Ou outro tema de sua escolha</h4>
                     <p class="destrave-card-desc">Traga qualquer dúvida ou dificuldade específica para resolvermos juntos direto na aula.</p>
@@ -242,27 +236,37 @@
                 </div>
             </div>
 
-            <!-- Avatares de outros alunos atendidos -->
-            <div style="margin-top: 14px;">
-                <p style="font-size: 0.76rem; color: var(--text-dim); text-align: center; margin-bottom: 8px;">Outros alunos que acompanham as aulas:</p>
-                <div class="student-avatar-grid">
-                    <div class="student-avatar-pill">
-                        <img src="images/mariana.webp" alt="Mariana" width="48" height="48" onerror="this.src='images/img.webp'">
-                        <span>Mariana (PB)</span>
+            <!-- OUTROS ALUNOS: CARROSSEL COMO NA PÁGINA DE REFERÊNCIA -->
+            <div class="other-students-wrap">
+                <p class="other-students-title">Outros alunos que acompanham as aulas:</p>
+
+                <!-- Carousel 3D Perspective -->
+                <div class="testimonial-carousel" id="carouselWrapper">
+                    <div class="carousel-track-container" id="carouselTrack"></div>
+
+                    <div class="carousel-info">
+                        <div class="carousel-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
+                        </div>
+                        <div class="carousel-name" id="carouselName"></div>
+                        <div class="carousel-city" id="carouselCity"></div>
+                        <div class="carousel-text" id="carouselText"></div>
                     </div>
-                    <div class="student-avatar-pill">
-                        <img src="images/nina.webp" alt="Nina" width="48" height="48" onerror="this.src='images/img.webp'">
-                        <span>Nina (MG)</span>
-                    </div>
-                    <div class="student-avatar-pill">
-                        <img src="images/nilza.webp" alt="Nilza" width="48" height="48" onerror="this.src='images/img.webp'">
-                        <span>Nilza (MT)</span>
-                    </div>
-                    <div class="student-avatar-pill">
-                        <img src="images/bia.webp" alt="Bia" width="48" height="48" onerror="this.src='images/img.webp'">
-                        <span>Bia (MG)</span>
-                    </div>
+                    <div class="carousel-dots" id="carouselDots"></div>
                 </div>
+
+                <!-- Botão Ver outros depoimentos em vídeo -->
+                <button class="btn-more-videos" id="btnToggleOtherVideos" type="button">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <span id="btnMoreVideosText">Ver outros depoimentos em vídeo</span>
+                </button>
+
+                <!-- Bloco expansível com os outros vídeos -->
+                <div id="otherVideosList" class="other-videos-grid" style="display: none;"></div>
             </div>
         </section>
 
